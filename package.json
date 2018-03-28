@@ -1,5 +1,5 @@
 {
-  "name": "clgen",
+  "name": "@aoki/clgen",
   "version": "0.1.0",
   "description": "Generate CHANGELOG from pull request title automatically",
   "main": "index.js",

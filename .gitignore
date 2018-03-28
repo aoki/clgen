@@ -1,0 +1,7 @@
+dist/
+node_modules/
+tmp/
+append_changelog.md
+tag_name.txt
+.nyc_output
+

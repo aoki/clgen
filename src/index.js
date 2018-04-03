@@ -65,8 +65,11 @@ const octokit = require('@octokit/rest')({
 });
 
 async function loadConfig() {
-  const remote = gitOriginParser(await require('simple-git/promise')('').listRemote(['--get-url']));
+  const origin = await require('simple-git/promise')('').listRemote(['--get-url']);
+  const remote = gitOriginParser(origin);
+  console.log(origin);
   return {
+    origin: origin,
     owner: remote.org,
     repo: remote.repo
   };
@@ -176,7 +179,8 @@ async function cloneRepository(config) {
     spinner.succeed();
   } else {
     const spinner = ora(`Cloning repository: ${owner}/${repo}`).start();
-    await git.clone(`${config.user}@${config.domain}:${owner}/${repo}.git`);
+    // Simple-git only http(s) protocol.
+    await git.clone(`${githubUrl}/${config.owner}/${config.repo}`);
     await git.cwd(`/tmp/${repo}`);
     spinner.succeed();
   }

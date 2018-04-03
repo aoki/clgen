@@ -67,7 +67,6 @@ const octokit = require('@octokit/rest')({
 async function loadConfig() {
   const origin = await require('simple-git/promise')('').listRemote(['--get-url']);
   const remote = gitOriginParser(origin);
-  console.log(origin);
   return {
     origin: origin,
     owner: remote.org,
@@ -256,6 +255,7 @@ function extractPullRequestType(prs) {
 function extractTicketTags(prs) {
   const spinner = ora('Extracting ticket tags').start();
   const extractTicketTagRegex = new RegExp(ticketTagRegex);
+  console.log(extractTicketTagRegex);
   const res = prs.map(r => {
     const matchResult = r.title.match(extractTicketTagRegex);
     r.ticket = matchResult ? matchResult[1] : null;

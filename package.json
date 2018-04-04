@@ -21,7 +21,7 @@
     "@octokit/rest": "14.0.5",
     "chalk": "2.3.0",
     "fs": "0.0.1-security",
-    "git-origin-parser": "0.1.0",
+    "git-origin-parser": "0.1.1",
     "meow": "4.0.0",
     "ora": "2.0.0",
     "semver": "5.5.0",

@@ -174,7 +174,7 @@ async function cloneRepository(config) {
     const spinner = ora(`Pulling git repository: ${owner}/${repo}`).start();
     await git.cwd(`/tmp/${repo}`);
     await git.pull('origin', 'master');
-    await git.pull('origin', 'master', '--tags');
+    await git.pull('origin', '--tags');
     spinner.succeed();
   } else {
     const spinner = ora(`Cloning repository: ${owner}/${repo}`).start();
